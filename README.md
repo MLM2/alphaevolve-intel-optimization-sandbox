@@ -1,33 +1,89 @@
 # AlphaEvolve Intelligence Optimization Sandbox
 
-A public, **evaluator-driven algorithm optimization** demo inspired by AlphaEvolve-style workflows. This repo shows how an
-AI system can propose candidate changes (algorithms / parameters) and accept them **only when metrics improve**.
+A public **mission-oriented optimization sandbox** inspired by AlphaEvolve-style workflows, demonstrating how AI systems can propose algorithmic changes **only when evaluator metrics improve**.
 
-> This is a *simulation* of the evaluation loop (not Google/DeepMind code). It is designed to be mission-relevant and safe for public release.
+This project is designed as a safe, unclassified portfolio artifact for **Intelligence Community mission engineering**, focused on:
 
-## What this demo does
-- Runs optimization loops over **benchmarks** (clustering + anomaly detection examples)
-- Uses **evaluator functions** to score candidates (quality, latency proxy, and governance checks)
-- Produces a **run report** (JSON) so results are auditable and repeatable
+- Evaluator-driven optimization loops  
+- Governance + latency budget enforcement  
+- Benchmarks aligned to analytic workflows (clustering + watchlisting/entity resolution)  
+- Auditable run artifacts + one-page summaries  
+- CI-backed reproducibility  
 
-## Quickstart (Windows / PowerShell)
+> **Note:** This is a simulation of evaluator-governed optimization principles — **not** Google/DeepMind source code.
+
+---
+
+## Why this matters (IC / Mission Engineering relevance)
+
+In intelligence and national security environments, optimization is not simply “higher accuracy.”
+
+Candidate algorithm changes must also satisfy:
+
+- Mission performance constraints (**latency budgets**)  
+- Governance bounds (**safe parameter ranges**)  
+- Repeatability + auditability  
+- Operational acceptance criteria  
+
+This sandbox demonstrates that evaluator-first delivery pattern in a transparent and reproducible framework.
+
+---
+
+## Core Idea: Evaluator-Governed Optimization
+
+The optimization loop follows a mission-style structure:
+
+1. Start with a baseline candidate configuration  
+2. Propose small controlled variations  
+3. Evaluate candidates using mission metrics  
+4. Accept changes **only when quality improves** AND governance constraints hold  
+5. Produce an auditable JSON report + summary artifact  
+
+---
+
+## Benchmarks Included
+
+### ✅ Toy Clustering Benchmark (`toy_clustering`)
+Optimizes clustering configuration (KMeans parameters) under governance constraints.
+
+- Quality proxy: inertia-based score  
+- Constraints: bounded parameters + latency budget  
+
+---
+
+### ✅ Entity Resolution / Watchlisting Benchmark (`entity_resolution`)
+Simulates identity matching workflows relevant to:
+
+- watchlisting  
+- alias resolution  
+- record linkage  
+- analytic triage  
+
+Features:
+
+- Synthetic alias/noise generation  
+- Similarity threshold evolution  
+- F1 quality scoring + latency gating  
+
+---
+
+## Governance + Mission Constraints
+
+The sandbox enforces lightweight governance gates:
+
+- Parameter bounds (safe ranges)  
+- Latency budgets (mission performance requirement)  
+- Fail-fast rejection for noncompliant candidates  
+
+This mimics real-world delivery where optimization must remain operationally safe.
+
+---
+
+## Quickstart (Windows)
+
+### 1. Create environment
+
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-python -m ae_sandbox.run --benchmark toy_clustering --steps 25
-```
-
-## Repo map
-- `src/ae_sandbox/` core library
-- `src/ae_sandbox/benchmarks/` toy benchmarks (replace with your own)
-- `src/ae_sandbox/optimizers/` candidate proposal + selection loop
-- `src/ae_sandbox/governance/` governance checks + traceability
-- `tests/` unit tests
-- `.github/workflows/` CI (lint + tests)
-
-## Roadmap (suggested)
-1. Add a second benchmark: entity resolution (synthetic)
-2. Add latency proxy constraints + budgets
-3. Add a policy gate: block unsafe transformations
-4. Add plotting notebook to visualize score improvements
